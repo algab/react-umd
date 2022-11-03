@@ -1,15 +1,24 @@
-import React, { createElement } from "react";
+import { createElement, useEffect, useState } from "react";
+
+import loadScript from "./script";
 
 function App() {
+  const [loading, setLoading] = useState(true);
 
-  const renderLink = () => {
-    return createElement('div', null, 'TESTE 2');
-  };
+  const renderUMD = async () => {
+    if ((window as any)["Component"] === undefined) {
+      await loadScript();
+      setLoading(false);      
+    }
+  }
+
+  useEffect(() => {
+    renderUMD();
+  }, []);
 
   return (
     <div>
-      Teste
-      {renderLink()}
+      {!loading ? createElement((window as any)["Component"]) : <></>}
     </div>
   );
 }
