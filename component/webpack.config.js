@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (env) => {
   return {
-    entry: "./src",
+    entry: env.mode === "development" ? "./src/index.tsx" : "./src/App.tsx",
     mode: env.mode,
     module: {
       rules: [
@@ -22,12 +22,11 @@ module.exports = (env) => {
       extensions: [".tsx", ".ts", ".js"],
     },
     output: {
-      filename: "header-github.js",
+      filename: "component.js",
       path: path.resolve(__dirname, "dist"),
-      library: {
-        name: "Test",
-        type: "umd",
-      },
+      library: 'Component',
+      libraryTarget: 'umd',
+      umdNamedDefine: true,
     },
     plugins: [
       env.mode === "development" ? new HtmlWebpackPlugin({
