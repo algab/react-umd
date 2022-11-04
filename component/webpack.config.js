@@ -26,6 +26,7 @@ module.exports = (env) => {
       path: path.resolve(__dirname, "dist"),
       library: 'Component',
       libraryTarget: 'umd',
+      libraryExport: 'default',
       umdNamedDefine: true,
     },
     plugins: [
