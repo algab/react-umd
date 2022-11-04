@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      {!loading ? createElement((window as any)["Component"].default, { name: "Álvaro" }) : <></>}
+      {!loading ? createElement((window as any)["Component"], { name: "Álvaro" }) : <></>}
     </>
   );
 }
