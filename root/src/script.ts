@@ -1,8 +1,8 @@
-export default function loadScript() {
+export default function loadScript(src: string) {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.async = true;
-    script.src = "http://localhost:3000/component.js";
+    script.src = src;
     script.onload = () => {
       resolve(script);
     };

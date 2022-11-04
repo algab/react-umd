@@ -7,8 +7,8 @@ function App() {
 
   const renderUMD = async () => {
     if ((window as any)["Component"] === undefined) {
-      await loadScript();
-      setLoading(false);      
+      await loadScript("http://localhost:3000/component.js");
+      setLoading(false);
     }
   }
 
@@ -17,9 +17,9 @@ function App() {
   }, []);
 
   return (
-    <div>
-      {!loading ? createElement((window as any)["Component"]) : <></>}
-    </div>
+    <>
+      {!loading ? createElement((window as any)["Component"].default, { name: "Álvaro" }) : <></>}
+    </>
   );
 }
 
