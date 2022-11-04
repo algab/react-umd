@@ -1,6 +1,6 @@
-# Root
+# Component
 
-React application responsible for assembling the React components in UMD.
+Application responsible for building the React component in UMD format.
 
 ## Scripts
 
